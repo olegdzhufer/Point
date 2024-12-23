@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Максим Олексів",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 93.3,
+      "left": 158.1,
+      "rotate": 90,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -101.6,
+      "left": 232.62,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "h-259.2", "v0", "h-4.99" ] ],
+    [ "pir1:OUT", "esp:2", "green", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.3", "black", [ "v-38.4", "h-52.84" ] ],
+    [ "pir1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:4", "green", [ "v9.2", "h-52.84" ] ]
+  ],
+  "dependencies": {}
+}
